@@ -1,0 +1,225 @@
+******************************************************************************
+                  TI ARM Linker PC v18.1.4                     
+******************************************************************************
+>> Linked Fri Mar 13 17:27:53 2020
+
+OUTPUT FILE NAME:   <lab6.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000779
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000007d0  0003f830  R  X
+  SRAM                  20000000   00008000  00000574  00007a8c  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000007d0   000007d0    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000564   00000564    r-x .text
+20000000    20000000    00000578   00000374    rwx
+  20000000    20000000    00000374   00000374    rwx .data
+  20000378    20000378    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000564     
+                  0000026c    0000050a     lab_6_library.obj (.text)
+                  00000776    00000002     --HOLE-- [fill = 0]
+                  00000778    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  000007a8    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  000007b4    0000000a     lab_6_wrapper.obj (.text)
+                  000007be    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000007c2    00000004                                   : exit.c.obj (.text:abort:abort)
+                  000007c6    00000002     --HOLE-- [fill = 0]
+                  000007c8    00000008     lab6.obj (.tramp.lab6.1)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000000    00000374     
+                  20000000    000002ec     lab_6_library.obj (.data)
+                  200002ec    00000078     lab6.obj (.data)
+                  20000364    00000008     lab_6_library.obj (.tramp.timer_init.1)
+                  2000036c    00000008     lab_6_library.obj (.tramp.uart_init.1)
+
+.stack     0    20000378    00000200     UNINITIALIZED
+                  20000378    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000037c    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       lab_6_library.obj              1306   0         748    
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       lab6.obj                       128    0         0      
+       lab_6_wrapper.obj              10     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1456   620       748    
+                                                              
+    C:\ti\ccsv8\tools\compiler\ti-cgt-arm_18.1.4.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       boot_cortex_m.c.obj            48     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         56     0         0      
+                                                              
+       Stack:                         0      0         512    
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   1512   620       1260   
+
+
+FAR CALL TRAMPOLINES
+
+callee name               trampoline name
+   callee addr  tramp addr   call addr  call info
+--------------  -----------  ---------  ----------------
+lab6                      $Tramp$TT$L$PI$$lab6
+   2000034d     000007c8     000007b6   lab_6_wrapper.obj (.text)
+timer_init                $Tramp$TT$L$PI$$timer_init
+   000002d1     20000364     20000354   lab6.obj (.data)
+uart_init                 $Tramp$TT$L$PI$$uart_init
+   00000615     2000036c     20000350   lab6.obj (.data)
+
+[3 trampolines]
+[3 trampoline calls]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                  
+-------   ----                  
+000007c3  C$$EXIT               
+00000399  Interrupt_init        
+000007a9  ResetISR              
+0000043f  Timer0_Handler        
+0000054f  UART0_Handler         
+20000578  __STACK_END           
+00000200  __STACK_SIZE          
+20000578  __STACK_TOP           
+ffffffff  __TI_pprof_out_hndl   
+ffffffff  __TI_prof_data_size   
+ffffffff  __TI_prof_data_start  
+00000000  __TI_static_base__    
+ffffffff  __binit__             
+ffffffff  __c_args__            
+UNDEFED   __mpu_init            
+20000378  __stack               
+00000779  _c_int00_noinit_noargs
+000007bf  _system_pre_init      
+000007c3  abort                 
+ffffffff  binit                 
+00000707  div_and_mod           
+00000000  g_pfnVectors          
+2000034d  lab6                  
+000007b5  main                  
+20000008  newAddress            
+200002e7  num1                  
+20000000  numi                  
+20000002  numj                  
+20000004  numk                  
+20000006  numm                  
+200002e9  numq                  
+0000059d  output_character      
+000005f7  output_string         
+20000058  promptLower           
+20000011  promptScore           
+20000030  promptUpper           
+20000080  promptboard           
+200001f1  promptboard10         
+2000021a  promptboard11         
+20000243  promptboard12         
+2000026c  promptboard13         
+20000295  promptboard14         
+200002be  promptboard15         
+200000a9  promptboard2          
+200000d2  promptboard3          
+200000fb  promptboard4          
+20000124  promptboard5          
+2000014d  promptboard6          
+20000176  promptboard7          
+2000019f  promptboard8          
+200001c8  promptboard9          
+0000057d  read_character        
+000005bd  read_string           
+000002d1  timer_init            
+00000615  uart_init             
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                  
+-------   ----                  
+00000000  __TI_static_base__    
+00000000  g_pfnVectors          
+00000200  __STACK_SIZE          
+000002d1  timer_init            
+00000399  Interrupt_init        
+0000043f  Timer0_Handler        
+0000054f  UART0_Handler         
+0000057d  read_character        
+0000059d  output_character      
+000005bd  read_string           
+000005f7  output_string         
+00000615  uart_init             
+00000707  div_and_mod           
+00000779  _c_int00_noinit_noargs
+000007a9  ResetISR              
+000007b5  main                  
+000007bf  _system_pre_init      
+000007c3  C$$EXIT               
+000007c3  abort                 
+20000000  numi                  
+20000002  numj                  
+20000004  numk                  
+20000006  numm                  
+20000008  newAddress            
+20000011  promptScore           
+20000030  promptUpper           
+20000058  promptLower           
+20000080  promptboard           
+200000a9  promptboard2          
+200000d2  promptboard3          
+200000fb  promptboard4          
+20000124  promptboard5          
+2000014d  promptboard6          
+20000176  promptboard7          
+2000019f  promptboard8          
+200001c8  promptboard9          
+200001f1  promptboard10         
+2000021a  promptboard11         
+20000243  promptboard12         
+2000026c  promptboard13         
+20000295  promptboard14         
+200002be  promptboard15         
+200002e7  num1                  
+200002e9  numq                  
+2000034d  lab6                  
+20000378  __stack               
+20000578  __STACK_END           
+20000578  __STACK_TOP           
+ffffffff  __TI_pprof_out_hndl   
+ffffffff  __TI_prof_data_size   
+ffffffff  __TI_prof_data_start  
+ffffffff  __binit__             
+ffffffff  __c_args__            
+ffffffff  binit                 
+UNDEFED   __mpu_init            
+
+[55 symbols]
